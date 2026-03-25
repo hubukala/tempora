@@ -94,28 +94,6 @@ The app will be available at:
 - [ ] Stripe subscription billing
 - [ ] Dashboard analytics with charts
 
-## Architecture Decision Records
-
-### ADR-001: Monorepo with Turborepo
-
-**Decision:** Use Turborepo monorepo instead of separate repositories.
-**Reason:** Shared types between frontend and backend ensure type safety across the stack. Turborepo's caching significantly speeds up CI builds.
-
-### ADR-002: Fastify over Express
-
-**Decision:** Use Fastify as the backend framework.
-**Reason:** Fastify is TypeScript-first with built-in schema validation, ~2x faster than Express, and has first-class support for OpenAPI/Swagger doc generation.
-
-### ADR-003: Workspace model from day one
-
-**Decision:** Include Workspace entity in MVP even though V1 is single-user.
-**Reason:** Adding multi-tenancy later requires expensive migrations. The Workspace model costs minimal overhead now but prevents a major refactor when adding team features.
-
-### ADR-004: Jest over Vitest
-
-**Decision:** Use Jest as the test runner.
-**Reason:** Larger ecosystem, more learning materials, better community support. While Vitest is faster, Jest's maturity and widespread adoption make it a safer choice for portfolio demonstration.
-
 ## License
 
 MIT

@@ -2,7 +2,7 @@
   "name": "tempora",
   "private": true,
   "scripts": {
-    "dev": "turbo dev",
+    "dev": "dotenv -- turbo dev",
     "build": "turbo build",
     "lint": "turbo lint",
     "type-check": "turbo type-check",
@@ -15,6 +15,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\""
   },
   "devDependencies": {
+    "@types/node": "^20.14.0",
     "dotenv-cli": "^11.0.0",
     "prettier": "^3.2.0",
     "turbo": "^2.3.0",

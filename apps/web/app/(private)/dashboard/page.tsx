@@ -1,4 +1,3 @@
-import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth/next";
 
 import { authOptions } from "@/lib/auth";
@@ -14,11 +13,7 @@ import {
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions);
 
-  if (!session?.user) {
-    redirect("/login");
-  }
-
-  const user = session.user as {
+  const user = session!.user as {
     id: string;
     name?: string | null;
     email?: string | null;
@@ -27,7 +22,7 @@ export default async function DashboardPage() {
   };
 
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-4xl flex-col gap-6 p-8">
+    <div className="mx-auto flex w-full max-w-4xl flex-col gap-6 p-8">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold text-white">Dashboard</h1>
         <form action="/api/auth/signout" method="post">
